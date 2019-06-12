@@ -30,6 +30,7 @@ def getSemester(in1):
         return str(int(year)-1) + "/" + str(year) + "-3"
 
 #to store all semesters that may be requested.
+#Years after 2018 is not included!
 def all_semesters():
     semesters = []
     start1 = 1998
@@ -57,9 +58,6 @@ def get_requested_semesters(in1, in2):
         requested.append(semesters[x])
     return requested
 
-
-# Get wanted semesters
-semesters = get_requested_semesters(sys.argv[1],sys.argv[2])
 # Grabs all the necessary links for given semester range
 def getAllLinks():
     All_links = []
@@ -88,8 +86,6 @@ def getAllLinks():
             All_links.append(left + semester + right)
 
     return All_links
-
-All_links = getAllLinks()
 
 # Get course codes for a departmant
 
@@ -396,6 +392,21 @@ def total_offerings_of_course(courses_list, instructors_list):
         l.append(str(x) + "/" + str(y))
 
     return l
+
+
+
+
+
+
+
+
+
+
+# Get wanted semesters
+semesters = get_requested_semesters(sys.argv[1],sys.argv[2])
+
+All_links = getAllLinks()
+
 
 # Predefine needed lists
 groupedLinks = getGroupedLinks(All_links)
